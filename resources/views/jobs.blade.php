@@ -13,19 +13,21 @@
         <tbody>
         @foreach ($jobs as $job)
             <tr>
-                <td style="padding: 5px;"><a href="/jobs/{{ $job['id'] }}" style="
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-"
-                                             onmouseover="this.style.backgroundColor='#0056b3'"
-                                             onmouseout="this.style.backgroundColor='#007bff'">
-                        {{ $job['title'] }}
+                <td style="padding: 5px;">
+                    <a href="/jobs/{{ $job['id'] }}" style="
+                        display: inline-block;
+                        padding: 10px 15px;
+                        background-color: #007bff;
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 5px;
+                        font-weight: bold;
+                        transition: background-color 0.3s ease;
+                    "
+                       onmouseover="this.style.backgroundColor='#0056b3'"
+                       onmouseout="this.style.backgroundColor='#007bff'">
+                        {{ $job->employer->name ?? 'Unknown Employer' }}
+                        - {{ $job['title'] ?? 'Untitled job' }}
                     </a>
                 </td>
                 <td style="padding: 5px;">${{ number_format($job->salary, 2, '.', ',') }}</td>
