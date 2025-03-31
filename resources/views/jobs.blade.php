@@ -28,7 +28,7 @@
                         {{ $job['title'] }}
                     </a>
                 </td>
-                <td style="padding: 5px;">{{ $job['salary'] }}</td>
+                <td style="padding: 5px;">${{ number_format($job->salary, 2, '.', ',') }}</td>
             </tr>
         @endforeach
         </tbody>
