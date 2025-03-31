@@ -26,8 +26,7 @@
                     "
                        onmouseover="this.style.backgroundColor='#0056b3'"
                        onmouseout="this.style.backgroundColor='#007bff'">
-                        {{ $job->employer->name ?? 'Unknown Employer' }}
-                        - {{ $job['title'] ?? 'Untitled job' }}
+                        {{ $job['title'] ?? 'Untitled job' }}
                     </a>
                 </td>
                 <td style="padding: 5px;">${{ number_format($job->salary, 2, '.', ',') }}</td>
