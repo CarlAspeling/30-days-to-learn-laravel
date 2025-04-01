@@ -23,9 +23,4 @@ class JobFactory extends Factory
             'salary' => $this->faker->numberBetween(1000, 100000),
         ];
     }
-
-    public function tags()
-    {
-        return $this->belongsToMany();
-    }
 }
