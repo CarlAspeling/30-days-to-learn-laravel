@@ -19,13 +19,19 @@ Route::get('/jobs/create', function () {
 });
 
 Route::post('/jobs', function () {
-    Job::create([
-        'title' => request('title'),
-        'salary' => request('salary'),
-        'employer_id' => 1
+    request()->validate([
+        'title' => 'required|string|max:255|min:5',
+        'salary' => 'required|numeric',
     ]);
 
-    return redirect('/jobs');
+    // If validation passes, save to the database
+    \App\Models\Job::create([
+        'title' => request('title'),
+        'salary' => request('salary'),
+        'employer_id' => 1,
+    ]);
+
+    return redirect()->back()->with('success', 'Job posted successfully!');
 });
 
 Route::get('/contact', function () {
